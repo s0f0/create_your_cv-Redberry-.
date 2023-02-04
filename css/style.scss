@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url(../assets/fonts/HelveticaNeue.ttc);
+}
+$myblack: #1A1A1A;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background: url(../assets/background.png) no-repeat;
+    background-size: cover;
+}
+header{
+    padding: 25px 70px 0px 70px;
+}
+.headerhr{
+    margin-top: 25px;
+    border: 1px solid $myblack;
+}
+#addbutton{
+    border-radius: 8px;
+    background: $myblack;
+    padding: 18px 126px;
+    color: #FFFFFF;
+    font-family: 'HelveticaNeue' ;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    text-decoration: none;
+    position: absolute;
+    margin-top: 424px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    z-index: 99999;
+}
+.backlogo{
+    padding-left: 56%;
+    padding-top: 19%;
+}
