@@ -17,55 +17,99 @@
         <div class="form_container">
 
             <!-- back button -->
-            <a href="../index.html"><img src="../assets/image/Vector.png" alt="back"></a>
+            <a href="../index.html" id="back_button"><img src="../assets/image/Vector.png" alt="back"></a>
 
             <!-- form -->
             <div id="form1">
 
                 <!-- form header -->
-                <div>
-                    <p>პირადი ინფო</p>
-                    <p>1/3</p>
-                    <hr>
+                <div class="header">
+                    <p id="header_p">პირადი ინფო</p>
+                    <p id="pagenum">1/3</p>
                 </div>
+                <hr>
 
                 <!-- full name -->
                 <div class="fullname">
                     <div class="fname">
                         <label>სახელი</label>
                         <input type="text" placeholder="ანზორ" id="name">
-                        <p>მინიმუმ 2 ასო, ქართული ასოები</p>
+                        <p class="validText">მინიმუმ 2 ასო, ქართული ასოები</p>
                     </div>
                     <div class="lname">
                         <label>გვარი</label>
                         <input type="text" placeholder="მუმლაძე" id="name">
-                        <p>მინიმუმ 2 ასო, ქართული ასოები</p>
+                        <p class="validText">მინიმუმ 2 ასო, ქართული ასოები</p>
                     </div>
                 </div>
                 <!-- upload photo ??????????????? -->
+                <div class="addphoto">
+                    <p>პირადი ფოტოს ატვირთვა</p>
+                    <button type="button">ატვირთვა</button>
+                </div>
 
                 <!-- about info -->
-                <div>
+                <div class="textarea">
                     <label>ჩემ შესახებ (არასავალდებულო)</label>
                     <textarea placeholder="ზოგადი ინფო შენს შესახებ" cols="30" rows="10"></textarea>
                 </div>
                 <!-- gmail -->
-                <div>
+                <div class="email">
                     <label>ელ.ფოსტა</label>
                     <input type="email" placeholder="anzor666@redberry.ge">
-                    <p>უნდა მთავრდებოდეს @redberry.ge-ით</p>
+                    <p class="validText">უნდა მთავრდებოდეს @redberry.ge-ით</p>
                 </div>
                 <!-- phone number -->
-                <div>
+                <div class="phnum">
                     <label>მობილურის ნომერი</label>
                     <input type="number" placeholder="+995 551 12 34 56">
-                    <p>უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</p>
+                    <p class="validText">უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</p>
                 </div>
                 <!-- naxt button -->
-                <div>
+                <div class="nextbtn">
                     <a href="">შემდეგი</a>
                 </div>
             </div>
+        </div>
+        <!-- cv -->
+        <div class="fillCV">
+            <div class="firstsection">
+                <div class="personinfo">
+                    <p id="full_name">ანზორ მუმლაძე</p>
+                    <div class="person_email">
+                        <img src="../assets/image/email-icon.png" alt="">
+                        <p id="email">anzor666@redberry.ge</p>
+                    </div>
+                    <div class="person_phone">
+                        <img src="../assets/image/phone-fill.png" alt="">
+                        <p>+995 597 63 45 16</p>
+                    </div>
+                    <p class="section_h">ჩემ შესახებ</p>
+                    <p id="about_me">ძალიან მიყვარს დიზაინის კეთება. დილით ადრე რომ ავდგები გამამხნევებელი ვარჯიშების მაგიერ დიზაინს ვაკეთებ. </p>
+                </div>
+                <div id="personimg"><img src="../assets/image/test2.jpg" alt=""></div>
+            </div>
+            <hr>
+            <div class="work">
+                <p class="section_h">გამოცდილება</p>
+                <p id="workplace">React Native Developer, Microsoft</p>
+                <p id="work_date">2020-09-23 - 2020-09-23</p>
+                <p id="aboutwork">Experienced Javascript Native Developer with 5 years in the industry.
+                     proficient withreact. Used problem-solving aptitude to encahge application 
+                     performance by 14%.created data visualisation tools and integrated designs.
+                </p>
+            </div>
+            <hr>
+            <div class="education">
+                <p class="section_h">განათლება</p>
+                <p id="education_quality">წმ. ანდრიას საპატრიარქოს სასწავლებელი, სტუდენტი</p>
+                <p id="edu_date">2020-09-09</p>
+                <p id="aboutedu">ვსწავლობდი გულმოდგინეთ. მყავდა ფრიადები. რაც შემეძლო — ვქენი. 
+                    კომპიუტერები მიყვარდა. ვიჯექი ჩემთვის, ვაკაკუნებდი ამ კლავიშებზე. მეუნებოდნენ — დაჯექი, 
+                    წაიკითხე რამე, რას აკაკუნებ, დრო მოვა და ჩაგიკაკუნებსო. აჰა, მოვიდა დრო და ვერა ვარ დეველოპერი?
+                </p>
+            </div>
+            <div id="cvlogo"><img src="../assets/image/LOGO-12 1.png" alt=""></div>
         </div>
     </div>
 </body>

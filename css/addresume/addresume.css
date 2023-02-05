@@ -1,1 +1,256 @@
-/*# sourceMappingURL=addresume.css.map */
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url(../../assets/fonts/HelveticaNeue.ttc);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "HelveticaNeue", Georgia, Times, serif;
+}
+
+.main_container {
+  background-color: #F9F9F9;
+  display: flex;
+}
+
+.form_container {
+  width: 50%;
+  padding: 47px 146px 95px;
+}
+
+.fillCV {
+  width: 50%;
+  background-color: #FFFFFF;
+}
+
+#back_button {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 48px;
+  top: 45px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  color: #1A1A1A;
+}
+
+#header_p {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+#pagenum {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+#form1 hr {
+  border: 1px solid #1A1A1A;
+}
+
+input, textarea {
+  background: #FFFFFF;
+  border-radius: 4px;
+  border: 1px solid #BCBCBC;
+  padding: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+}
+
+input:focus-visible {
+  outline-width: 2px;
+  outline-color: #BCBCBC;
+}
+
+textarea:focus-visible {
+  outline-width: 2px;
+  outline-color: #BCBCBC;
+}
+
+label {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #000000;
+}
+
+.validText {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  color: #2E2E2E;
+}
+
+.fullname {
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 46px;
+}
+
+.fname, .lname {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 47%;
+}
+
+.addphoto {
+  display: flex;
+  gap: 19px;
+  margin-bottom: 41px;
+}
+
+.addphoto p {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #1A1A1A;
+}
+
+.addphoto button {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+  background: #0E80BF;
+  border-radius: 4px;
+  padding: 6px 19px;
+  border: none;
+  cursor: pointer;
+}
+
+.phnum, .email, .textarea {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.textarea textarea {
+  height: 93px;
+  margin-bottom: 27px;
+}
+
+.email {
+  margin-bottom: 13px;
+}
+
+.nextbtn {
+  margin-top: 152px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nextbtn a {
+  padding: 15px 35px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #FFFFFF;
+  background-color: #6B40E3;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.nextbtn a:hover {
+  background-color: #7949FF;
+}
+
+.nextbtn a:focus {
+  background-color: #512FAF;
+}
+
+.fillCV {
+  padding: 68px 80px;
+}
+
+.firstsection {
+  display: flex;
+  justify-content: space-between;
+}
+
+#personimg {
+  width: 246px;
+  height: 246px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 48px;
+  right: 75px;
+}
+
+#personimg img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.personinfo {
+  width: 71%;
+}
+
+#full_name {
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 42px;
+  color: #F93B1D;
+  margin-bottom: 17px;
+}
+
+.person_email, .person_phone {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#about_me, #workplace, #aboutwork, #education_quality, #aboutedu {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.section_h {
+  color: #F93B1D;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  margin-top: 24px;
+  margin-bottom: 15px;
+}
+
+.fillCV hr {
+  border: 1px solid #C8C8C8;
+  margin-top: 32px;
+}
+
+#edu_date, #work_date {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #919191;
+  margin-top: 7px;
+  margin-bottom: 16px;
+}
+
+#cvlogo {
+  position: absolute;
+  bottom: 44px;
+}/*# sourceMappingURL=addresume.css.map */
