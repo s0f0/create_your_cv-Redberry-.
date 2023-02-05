@@ -9,7 +9,7 @@
 }
 
 body {
-  background: url(../assets/background.png) no-repeat;
+  background: url(../assets/image/background.png) no-repeat;
   background-size: cover;
 }
 
@@ -27,7 +27,7 @@ header {
   background: #1A1A1A;
   padding: 18px 126px;
   color: #FFFFFF;
-  font-family: "HelveticaNeue";
+  font-family: "HelveticaNeue", Georgia, Times, serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
