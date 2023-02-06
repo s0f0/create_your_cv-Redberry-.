@@ -54,7 +54,7 @@
   line-height: 24px;
 }
 
-#form1 hr {
+.formhr {
   border: 1px solid #1A1A1A;
 }
 
@@ -149,6 +149,10 @@ label {
 .nextbtn {
   margin-top: 152px;
   display: flex;
+  justify-content: space-between;
+}
+
+.f-end {
   justify-content: flex-end;
 }
 
@@ -157,6 +161,7 @@ label {
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
+  letter-spacing: 0.08em;
   color: #FFFFFF;
   background-color: #6B40E3;
   text-decoration: none;
@@ -169,6 +174,103 @@ label {
 
 .nextbtn a:focus {
   background-color: #512FAF;
+}
+
+.position, .employer, .date, .aducation {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.position, .aducation {
+  margin-top: 69px;
+}
+
+.date {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.start_date, .end_date {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 45%;
+}
+
+.form2_hr {
+  margin-top: 50px;
+  margin-bottom: 45px;
+}
+
+#addexperience {
+  padding: 18px 60px;
+  background: #62A1EB;
+  border-radius: 4px;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+.select-group {
+  position: relative;
+}
+
+.option {
+  display: none;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #BCBCBC;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 16px 28px rgba(0, 0, 0, 0.24);
+  position: absolute;
+  width: 100%;
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 4px;
+  border: 1px solid #BCBCBC;
+  padding: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.arrow {
+  border: solid #484848;
+  border-width: 0 2px 2px 0;
+  padding: 4px;
+  transform: rotate(45deg);
+}
+
+.select-item {
+  padding: 10px 0 10px 16px;
+  color: #1A1A1A;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+}
+
+.select-item:hover {
+  background-color: #C3DCEE;
+}
+
+.hidden {
+  display: none;
 }
 
 .fillCV {
