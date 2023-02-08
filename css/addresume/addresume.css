@@ -9,6 +9,14 @@
   font-family: "HelveticaNeue", Georgia, Times, serif;
 }
 
+.step {
+  display: none;
+}
+
+.step.active {
+  display: block;
+}
+
 .main_container {
   background-color: #F9F9F9;
   display: flex;
@@ -119,7 +127,7 @@ label {
   color: #1A1A1A;
 }
 
-.addphoto button {
+.uploadbtn {
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
@@ -129,6 +137,9 @@ label {
   padding: 6px 19px;
   border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 27px;
 }
 
 .phnum, .email, .textarea {
@@ -156,7 +167,7 @@ label {
   justify-content: flex-end;
 }
 
-.nextbtn a {
+.nextbtn button {
   padding: 15px 35px;
   font-weight: 500;
   font-size: 16px;
@@ -166,13 +177,14 @@ label {
   background-color: #6B40E3;
   text-decoration: none;
   border-radius: 4px;
+  border: none;
 }
 
-.nextbtn a:hover {
+.nextbtn button:hover {
   background-color: #7949FF;
 }
 
-.nextbtn a:focus {
+.nextbtn button:focus {
   background-color: #512FAF;
 }
 
@@ -275,6 +287,7 @@ label {
 
 .fillCV {
   padding: 68px 80px;
+  position: relative;
 }
 
 .firstsection {

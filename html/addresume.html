@@ -14,13 +14,14 @@
     <!-- main container -->
     <div class="main_container">
         <!-- form section -->
-        <div class="form_container">
+        <form class="form_container">
+        <!-- <div class="form_container"> -->
 
             <!-- back button -->
-            <a href="../index.html" id="back_button"><img src="../assets/image/Vector.png" alt="back"></a>
+            <a href="../index.html" id="back_button" ><img src="../assets/image/Vector.png" alt="back"></a>
 
             <!-- form page 1 -->
-            <div id="form1" style="display: none;">
+            <div id="form1" class="step active">
 
                 <!-- form header -->
                 <div class="header">
@@ -42,10 +43,11 @@
                         <p class="validText">მინიმუმ 2 ასო, ქართული ასოები</p>
                     </div>
                 </div>
-                <!-- upload photo ------ფუნქციურად ასამუშავებელია -->
+                <!-- upload photo -->
                 <div class="addphoto">
                     <p>პირადი ფოტოს ატვირთვა</p>
-                    <button type="button">ატვირთვა</button>
+                    <input type="file" accept="image/*"  id="upload-btn" hidden>
+                    <label for="upload-btn" class="uploadbtn">ატვირთვა</label>
                 </div>
 
                 <!-- about info -->
@@ -65,14 +67,14 @@
                     <input type="tel" placeholder="+995 551 12 34 56">
                     <p class="validText">უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</p>
                 </div>
-                <!-- naxt button ------ ფუნქციურად ასამუშავებელია-->
-                <div class="nextbtn f-end">
-                    <a href="">შემდეგი</a>
+                <!-- naxt button -->
+                <div class="nextbtn f-end" id="gotopagetwo">
+                    <button type="button" class="next-btn">შემდეგი</button>
                 </div>
             </div>
 
             <!-- form page 2 -->
-            <div id="form2" style="display: none;">
+            <div id="form2" class="step">
                 <!-- form header -->
                 <div class="header">
                     <p id="header_p">პირადი ინფო</p>
@@ -113,21 +115,22 @@
                 <hr class="form2_hr">
                 <!-- add button  ------ ფუნქციურად ასამუშავებელია -->
                 <button type="button" id="addexperience">მეტი გამოცდილების დამატება</button>
-                <!-- next and back button  ------ ფუნქციურად ასამუშავებელია -->
+                <!-- next and back button -->
                 <div class="nextbtn">
-                    <a href="">უკან</a>
-                    <a href="">შემდეგი</a>
+                    <button type="button" class="previous-btn">უკან</button>
+                    <button type="button" class="next-btn">შემდეგი</button>
                 </div>
             </div>
 
             <!-- form page 3 -->
-            <div id="form3">
+            <div id="form3" class="step">
                 <!-- form header -->
                 <div class="header">
                    <p id="header_p">განათლება</p>
                    <p id="pagenum">3/3</p>
                </div>
                <hr class="formhr">
+               
                <!-- education -->
                <div class="aducation">
                    <label>სასწავლებელი</label>
@@ -174,13 +177,15 @@
                <hr class="form2_hr">
                <!-- add button ------ ფუნქციურად ასამუშავებელია -->
                <button type="button" id="addexperience">მეტი გამოცდილების დამატება</button>
-               <!-- next and back button ------ ფუნქციურად ასამუშავებელია -->
+               <!-- next and back button -->
                <div class="nextbtn">
-                   <a href="#">უკან</a>
-                   <a href="#">დასრულება</a>
+                    <button type="button" class="previous-btn">უკან</button>
+                    <!-- ჩასასწორებელია ეს დასრულების ღილაკი ფუნქცია ჭირდება  -->
+                    <button type="button" class="submit-btn">დასრულება</button>
                </div>
             </div>
-        </div>
+        <!-- </div> -->
+        </form>
         <!-- cv -->
         <div class="fillCV">
             <div class="firstsection">
@@ -197,7 +202,7 @@
                     <p class="section_h">ჩემ შესახებ</p>
                     <p id="about_me">ძალიან მიყვარს დიზაინის კეთება. დილით ადრე რომ ავდგები გამამხნევებელი ვარჯიშების მაგიერ დიზაინს ვაკეთებ. </p>
                 </div>
-                <div id="personimg"><img src="../assets/image/test2.jpg" alt=""></div>
+                <div id="personimg"><img src="" alt="" id="chosen_image"></div>
             </div>
             <hr>
             <div class="work">
