@@ -25,51 +25,53 @@
 
                 <!-- form header -->
                 <div class="header">
-                    <p id="header_p">პირადი ინფო</p>
-                    <p id="pagenum">1/3</p>
+                    <p class="header_p">პირადი ინფო</p>
+                    <p class="pagenum">1/3</p>
                 </div>
                 <hr class="formhr">
 
                 <!-- full name -->
                 <div class="fullname">
                     <div class="fname">
-                        <label>სახელი</label>
-                        <input type="text" placeholder="ანზორ" id="name">
+                        <label class="fname_name">სახელი</label>
+                        <input type="text" placeholder="ანზორ" id="fname">
                         <p class="validText">მინიმუმ 2 ასო, ქართული ასოები</p>
                     </div>
                     <div class="lname">
-                        <label>გვარი</label>
-                        <input type="text" placeholder="მუმლაძე" id="name">
+                        <label class="lname_name">გვარი</label>
+                        <input type="text" placeholder="მუმლაძე" id="lname">
                         <p class="validText">მინიმუმ 2 ასო, ქართული ასოები</p>
                     </div>
                 </div>
                 <!-- upload photo -->
                 <div class="addphoto">
-                    <p>პირადი ფოტოს ატვირთვა</p>
+                    <p id="upload_text">პირადი ფოტოს ატვირთვა</p>
                     <input type="file" accept="image/*"  id="upload-btn" hidden>
                     <label for="upload-btn" class="uploadbtn">ატვირთვა</label>
+                    <img class="warningicon" src="../assets/image/ph_warning-fill.png" alt="Error">
+                    <img class="uploaded" src="../assets/image/akar-icons_circle-check-fill.png" alt="">
                 </div>
 
                 <!-- about info -->
                 <div class="textarea">
                     <label>ჩემ შესახებ (არასავალდებულო)</label>
-                    <textarea placeholder="ზოგადი ინფო შენს შესახებ" cols="30" rows="10"></textarea>
+                    <textarea placeholder="ზოგადი ინფო შენს შესახებ" cols="30" rows="10" id="about_Me"></textarea>
                 </div>
                 <!-- gmail -->
                 <div class="email">
-                    <label>ელ.ფოსტა</label>
-                    <input type="email" placeholder="anzor666@redberry.ge">
+                    <label class="labl_email">ელ.ფოსტა</label>
+                    <input type="email" placeholder="anzor666@redberry.ge" id="email">
                     <p class="validText">უნდა მთავრდებოდეს @redberry.ge-ით</p>
                 </div>
                 <!-- phone number -->
                 <div class="phnum">
-                    <label>მობილურის ნომერი</label>
-                    <input type="tel" placeholder="+995 551 12 34 56">
+                    <label class="phone-lab">მობილურის ნომერი</label>
+                    <input type="tel" placeholder="+995 551 12 34 56" id="tel">
                     <p class="validText">უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</p>
                 </div>
                 <!-- naxt button -->
                 <div class="nextbtn f-end" id="gotopagetwo">
-                    <button type="button" class="next-btn">შემდეგი</button>
+                    <button type="button" class="next-btn f1_nectbtn">შემდეგი</button>
                 </div>
             </div>
 
@@ -77,48 +79,50 @@
             <div id="form2" class="step">
                 <!-- form header -->
                 <div class="header">
-                    <p id="header_p">პირადი ინფო</p>
-                    <p id="pagenum">2/3</p>
+                    <p class="header_p">გამოცდილება</p>
+                    <p class="pagenum">2/3</p>
                 </div>
                 <hr class="formhr">
 
                 <!-- position -->
-                <div class="position">
-                    <label>თანამდებობა</label>
-                    <input type="text" placeholder="დეველოპერი, დიზაინერი, ა.შ">
-                    <p class="validText">მინიმუმ 2 სიმბოლო</p>
-                </div>
-
-                <!-- employer -->
-                <div class="employer">
-                    <label>დამსაქმებელი</label>
-                    <input type="text" placeholder="დამსაქმებელი">
-                    <p class="validText">მინიმუმ 2 სიმბოლო</p>
-                </div>
-                <!-- date -->
-                <div class="date">
-                    <div class="start_date">
-                        <label>დაწყების რიცხვი</label>
-                        <input type="date" placeholder="mm / dd / yyyy">
+                <div class="experience">
+                    <div class="position">
+                        <label class="position-labl">თანამდებობა</label>
+                        <input type="text" placeholder="დეველოპერი, დიზაინერი, ა.შ" id="position">
+                        <p class="validText">მინიმუმ 2 სიმბოლო</p>
                     </div>
-                    <div class="end_date">
-                        <label>დამთავრების რიცხვი</label>
-                        <input type="date" placeholder="mm / dd / yyyy">
-                    </div>
-                </div>
-                <!-- about position -->
-                <div class="textarea">
-                    <label>აღწერა</label>
-                    <textarea placeholder="როლი თანამდებობაზე და ზოგადი აღწერა" cols="30" rows="10"></textarea>
-                </div>
 
-                <hr class="form2_hr">
+                    <!-- employer -->
+                    <div class="employer">
+                        <label>დამსაქმებელი</label>
+                        <input type="text" placeholder="დამსაქმებელი" id="employer"> 
+                        <p class="validText">მინიმუმ 2 სიმბოლო</p>
+                    </div>
+                    <!-- date -->
+                    <div class="date">
+                        <div class="start_date">
+                            <label>დაწყების რიცხვი</label>
+                            <input type="date" placeholder="mm / dd / yyyy" id="start_date">
+                        </div>
+                        <div class="end_date">
+                            <label>დამთავრების რიცხვი</label>
+                            <input type="date" placeholder="mm / dd / yyyy" id="end_date">
+                        </div>
+                    </div>
+                    <!-- about position -->
+                    <div class="textarea">
+                        <label>აღწერა</label>
+                        <textarea placeholder="როლი თანამდებობაზე და ზოგადი აღწერა" cols="30" rows="10" id="about_work"></textarea>
+                    </div>
+                    <hr class="form2_hr">
+                </div>
+                
                 <!-- add button  ------ ფუნქციურად ასამუშავებელია -->
-                <button type="button" id="addexperience">მეტი გამოცდილების დამატება</button>
+                <button type="button" id="addexperience" class="addexperience" onclick="addExperience()">მეტი გამოცდილების დამატება</button>
                 <!-- next and back button -->
                 <div class="nextbtn">
                     <button type="button" class="previous-btn">უკან</button>
-                    <button type="button" class="next-btn">შემდეგი</button>
+                    <button type="button" class="next-btn f2_nextbtn">შემდეგი</button>
                 </div>
             </div>
 
@@ -126,57 +130,59 @@
             <div id="form3" class="step">
                 <!-- form header -->
                 <div class="header">
-                   <p id="header_p">განათლება</p>
-                   <p id="pagenum">3/3</p>
+                   <p class="header_p">განათლება</p>
+                   <p class="pagenum">3/3</p>
                </div>
                <hr class="formhr">
-               
+
                <!-- education -->
-               <div class="aducation">
-                   <label>სასწავლებელი</label>
-                   <input type="text" placeholder="სასწავლებელი">
-                   <p class="validText">მინიმუმ 2 სიმბოლო</p>
-               </div>
-               
-               <!-- date and quality-->
-               <div class="date">
-                   <div class="start_date quality">
-                       <label>ხარისხი</label>
-                
-                       <div class="select-group">
-                            <button class="button" id="button"> 
-                                    <span id="select-label">აირჩიე ხარისხი</span>
-                                    <div class="arrow"></div>
-                                </button>
-                            <div id="dropdown" class="dropdown hidden">
-                                    <label for="option1" class="select-item">option1</label>
-                                    <input type="radio" id="option1" class="option" name="where" value="option1">
+                <div class="education">
+                    <div class="aducation">
+                        <label>სასწავლებელი</label>
+                        <input type="text" placeholder="სასწავლებელი" id="education_speace">
+                        <p class="validText">მინიმუმ 2 სიმბოლო</p>
+                    </div>
+                    
+                    <!-- date and quality-->
+                    <div class="date">
+                        <div class="start_date quality">
+                            <label>ხარისხი</label>
+                        
+                            <div class="select-group">
+                                    <button class="button" id="button"> 
+                                            <span id="select-label">აირჩიე ხარისხი</span>
+                                            <div class="arrow"></div>
+                                    </button>
+                                    <div id="dropdown" class="dropdown hidden">
+                                            <label for="option1" class="select-item">option1</label>
+                                            <input type="radio" id="option1" class="option" name="where" value="option1">
 
-                                    <label for="option2" class="select-item">option2</label>
-                                    <input type="radio" id="option2" class="option" name="where" value="option1">
+                                            <label for="option2" class="select-item">option2</label>
+                                            <input type="radio" id="option2" class="option" name="where" value="option1">
 
-                                    <label for="option3" class="select-item">option3</label>
-                                    <input type="radio" id="option3" class="option" name="where" value="option1">
+                                            <label for="option3" class="select-item">option3</label>
+                                            <input type="radio" id="option3" class="option" name="where" value="option1">
 
-                                    <label for="option4" class="select-item">option4</label>
-                                    <input type="radio" id="option4" class="option" name="where" value="option1">
+                                            <label for="option4" class="select-item">option4</label>
+                                            <input type="radio" id="option4" class="option" name="where" value="option1">
+                                    </div>
                             </div>
-                        </div>
 
-                   </div>
-                   <div class="end_date">
-                       <label>დამთავრების რიცხვი</label>
-                       <input type="date" placeholder="mm / dd / yyyy">
-                   </div>
-               </div>
-               <!-- about position -->
-               <div class="textarea">
-                   <label>აღწერა</label>
-                   <textarea placeholder="განათლების აღწერა" cols="30" rows="10"></textarea>
-               </div>
-               <hr class="form2_hr">
+                        </div>
+                        <div class="end_date">
+                            <label>დამთავრების რიცხვი</label>
+                            <input type="date" placeholder="mm / dd / yyyy" id="edu-end-date">
+                        </div>
+                    </div>
+                    <!-- about position -->
+                    <div class="textarea">
+                        <label>აღწერა</label>
+                        <textarea id="about-edu" placeholder="განათლების აღწერა" cols="30" rows="10"></textarea>
+                    </div>
+                    <hr class="form2_hr">
+                </div>
                <!-- add button ------ ფუნქციურად ასამუშავებელია -->
-               <button type="button" id="addexperience">მეტი გამოცდილების დამატება</button>
+               <button type="button" id="addeducation" class="addexperience" onclick="addEducation()">მეტი სასწავლებლის დამატება</button>
                <!-- next and back button -->
                <div class="nextbtn">
                     <button type="button" class="previous-btn">უკან</button>
@@ -190,39 +196,37 @@
         <div class="fillCV">
             <div class="firstsection">
                 <div class="personinfo">
-                    <p id="full_name">ანზორ მუმლაძე</p>
+                    <p id="full_name"><span id="person_fname"></span><span id="person_lname"></span></p>
                     <div class="person_email">
-                        <img src="../assets/image/email-icon.png" alt="">
-                        <p id="email">anzor666@redberry.ge</p>
+                        <img src="../assets/image/email-icon.png" alt="" id="email_icon">
+                        <p id="p_email"></p>
                     </div>
                     <div class="person_phone">
-                        <img src="../assets/image/phone-fill.png" alt="">
-                        <p>+995 597 63 45 16</p>
+                        <img src="../assets/image/phone-fill.png" alt="" id="Phone_icon">
+                        <p id="Person_phone"></p>
                     </div>
                     <p class="section_h">ჩემ შესახებ</p>
-                    <p id="about_me">ძალიან მიყვარს დიზაინის კეთება. დილით ადრე რომ ავდგები გამამხნევებელი ვარჯიშების მაგიერ დიზაინს ვაკეთებ. </p>
+                    <p id="about_me"></p>
                 </div>
                 <div id="personimg"><img src="" alt="" id="chosen_image"></div>
             </div>
-            <hr>
+            <hr class="cvhr1">
             <div class="work">
-                <p class="section_h">გამოცდილება</p>
-                <p id="workplace">React Native Developer, Microsoft</p>
-                <p id="work_date">2020-09-23 - 2020-09-23</p>
-                <p id="aboutwork">Experienced Javascript Native Developer with 5 years in the industry.
-                     proficient withreact. Used problem-solving aptitude to encahge application 
-                     performance by 14%.created data visualisation tools and integrated designs.
-                </p>
+                <p class="section_h Work_experience">გამოცდილება</p>
+                <div class="exper_1">
+                    <p id="workplace"><span id="Position"></span><span id="Work_place"></span></p>
+                    <p id="work_date"><span id="start-date"></span> <span id="end-date"></span></p>
+                    <p id="aboutwork"> </p>
+                </div>
             </div>
-            <hr>
-            <div class="education">
-                <p class="section_h">განათლება</p>
-                <p id="education_quality">წმ. ანდრიას საპატრიარქოს სასწავლებელი, სტუდენტი</p>
-                <p id="edu_date">2020-09-09</p>
-                <p id="aboutedu">ვსწავლობდი გულმოდგინეთ. მყავდა ფრიადები. რაც შემეძლო — ვქენი. 
-                    კომპიუტერები მიყვარდა. ვიჯექი ჩემთვის, ვაკაკუნებდი ამ კლავიშებზე. მეუნებოდნენ — დაჯექი, 
-                    წაიკითხე რამე, რას აკაკუნებ, დრო მოვა და ჩაგიკაკუნებსო. აჰა, მოვიდა დრო და ვერა ვარ დეველოპერი?
-                </p>
+            <hr class="cvhr2">
+            <div class="education educationCv">
+                <p class="section_h education-h">განათლება</p>
+                <div class="educ_1">
+                    <p id="education_quality"><span id="edu-spece"></span> <span id="edu-quality"></span> </p>
+                    <p id="edu_date"></p>
+                    <p id="aboutedu"> </p>
+                </div>
             </div>
             <div id="cvlogo"><img src="../assets/image/LOGO-12 1.png" alt=""></div>
         </div>
@@ -231,5 +235,6 @@
 
     <!-- script -->
     <script src="../js/script.js"></script>
+    <script src="../js/fillCv.js"></script>
 </body>
 </html>

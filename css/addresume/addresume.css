@@ -50,13 +50,13 @@
   color: #1A1A1A;
 }
 
-#header_p {
+.header_p {
   font-weight: 700;
   font-size: 24px;
   line-height: 29px;
 }
 
-#pagenum {
+.pagenum {
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
@@ -64,6 +64,14 @@
 
 .formhr {
   border: 1px solid #1A1A1A;
+}
+
+.warningicon, .uploaded {
+  display: none;
+}
+
+#email_icon, #Phone_icon {
+  display: none;
 }
 
 input, textarea {
@@ -212,12 +220,16 @@ label {
   width: 45%;
 }
 
+.exper_1, .educ_1 {
+  margin-bottom: 40px;
+}
+
 .form2_hr {
   margin-top: 50px;
   margin-bottom: 45px;
 }
 
-#addexperience {
+.addexperience {
   padding: 18px 60px;
   background: #62A1EB;
   border-radius: 4px;
@@ -285,6 +297,10 @@ label {
   display: none;
 }
 
+.fillCV hr {
+  display: none;
+}
+
 .fillCV {
   padding: 68px 80px;
   position: relative;
@@ -342,6 +358,7 @@ label {
 }
 
 .section_h {
+  display: none;
   color: #F93B1D;
   font-weight: 700;
   font-size: 18px;
