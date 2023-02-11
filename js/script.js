@@ -38,7 +38,7 @@ document.getElementById("personimg").style.display = "none";
 uploadBtn.onchange = () => {
     let reader = new FileReader();
     reader.readAsDataURL(uploadBtn.files[0]);
-    console.log(uploadBtn.files[0]);
+    // console.log(uploadBtn.files[0]);
     reader.onload = () => {
         chosenImage.setAttribute("src", reader.result);
     }
@@ -54,11 +54,14 @@ const nextBtn = document.querySelectorAll('form .next-btn');
 const prevBtn = document.querySelectorAll('form .previous-btn');
 const form = document.querySelector('form');
 
-nextBtn.forEach(button=>{
-    button.addEventListener('click', ()=> {
-        changeStep('next');
+function changepage(){
+    nextBtn.forEach(button=>{
+        button.addEventListener('click', ()=> {
+            changeStep('next');
+        })
     })
-})
+}
+
 prevBtn.forEach(button=> {
     button.addEventListener('click', ()=> {
         changeStep('prev')
@@ -76,7 +79,7 @@ function changeStep(btn) {
         index--;
     }
     steps[index].classList.add('active');
-    console.log(index);
+    // console.log(index);
 }
 
 
@@ -129,67 +132,128 @@ const aducationSpace = document.querySelector('#education_speace');
 
 
 // page 1 validation
+let PersonData = [];
 
-// f1NextBtn.addEventListener('click', (e) => {
-//     let Error = [];
-//     let res = /^[ა-ჰ]+$/.test(fname.value);
-//     // first and last name validation
-//     minTwoSymb(fname);
-//     minTwoSymb(lastName);
-//     function minTwoSymb(x){
-//         if(x.value.length < 2 || x.value === ''|| res === false){
-//             x.style.borderColor = "#EF5050";
-//             let labelClass = '.' + x.id + '_name';
-//             console.log(labelClass)
-//             console.log(x.id);
-//             document.querySelector(labelClass).style.color = "#EF5050";
-//             Error.push('Error');
-//         }else{
-//             x.style.borderColor = "#98E37E";
-//         }
-//     }
-//     // upload photo validation
-//     if(document.querySelector('#upload-btn').value == ''){
-//         document.querySelector('#upload_text').style.color = "#EF5050";
-//         document.querySelector('.warningicon').style.display = "block";
-//         Error.push('Error');
-//     }else{
-//         document.querySelector('.uploaded').style.display = "block";
-//     }
+// first page Errors
+let p1Error = [];
 
-//     // email validation
+// first and last name validation
 
-//     let checkEmail = /^[a-zA-Z0-9.]+@redberry.ge$/.test(email.value);
-//     console.log(checkEmail);
-//     if(email.value === '' || checkEmail === false){
-//         email.style.borderColor = "#EF5050";
-//         document.querySelector('.labl_email').style.color = "#EF5050";
-//         Error.push('Error');
-//     }else{
-//         email.style.borderColor = "#98E37E";
-//     }
+// console.log('')
+fname.addEventListener("focusout", () =>{
+    let res = /^[ა-ჰ]+$/.test(fname.value);
+    let labelClass = '.' + fname.id + '_name';
+    if(fname.value.length < 2 || fname.value == ''|| res === false){
+        fname.style.borderColor = "#EF5050";
+        document.querySelector(labelClass).style.color = "#EF5050";
+        fname.classList.add('invalid');
+        p1Error.firstname = false;
+    }else{
+        fname.style.borderColor = "#98E37E";
+        document.querySelector(labelClass).style.color = "#000000";
+        fname.classList.add('valid');
+        PersonData.FirstName = fname.value;
+        p1Error.firstname = true
+    }
+    return p1Error
+});
 
-//     // phone validation
-//     // რეჯექსია გასასწორებელი ყოველთვის ფოლსია
-//     let chackPhone = phone.value.match(/^\+995\s5\d{2}\s\d{2}\s\d{2}\s\d{2}$/);
-//     console.log(chackPhone);
-//     if(phone.value === ''|| chackPhone === false){
-//         phone.style.borderColor = "#EF5050";
-//         document.querySelector('.phone-lab').style.color = "#EF5050";
-//         Error.push('Error');
-//     }else{
-//         phone.style.borderColor = "#98E37E";
-//     }
+lastName.addEventListener("focusout", () =>{
+    let res = /^[ა-ჰ]+$/.test(lastName.value);
+    let labelClass = '.' + lastName.id + '_name';
+    if(lastName.value.length < 2 || lastName.value === ''|| res === false){
+        lastName.style.borderColor = "#EF5050";
+        document.querySelector(labelClass).style.color = "#EF5050";
+        lastName.classList.add('invalid');
+        p1Error.lastname = false;
+    }else{
+        lastName.style.borderColor = "#98E37E";
+        document.querySelector(labelClass).style.color = "#000000";
+        lastName.classList.add('valid');
+        PersonData.LastName = lastName.value;
+        p1Error.lastname = true;
+    }
+  
+});
 
-//     // button validation
-//     if(Error.length > 0){
-//         // button.addEventListener('click', function(e){
-//         //     e.preventDefault();
-//         // })
-//         steps.indexOf(document.querySelector('form .step.active')) = 0;
-//     }
-// })
+// email validation
 
+
+email.addEventListener("focusout", () => {
+    let checkEmail = /^[a-zA-Z0-9.]+@redberry.ge$/.test(email.value);
+    if(email.value === '' || checkEmail === false){
+        email.style.borderColor = "#EF5050";
+        document.querySelector('.labl_email').style.color = "#EF5050";
+        email.classList.add('invalid');
+        p1Error.Email = false;
+    }else{
+        email.style.borderColor = "#98E37E";
+        email.classList.add('valid');
+        PersonData.email = email.value;
+        p1Error.Email = true;
+    }
+  
+})
+
+// phone validation
+
+phone.addEventListener("focusout", () => {
+    let chackPhone = phone.value.match(/^\+995\s5\d{2}\s\d{2}\s\d{2}\s\d{2}$/);
+    if(phone.value === ''|| chackPhone === false){
+        phone.style.borderColor = "#EF5050";
+        document.querySelector('.phone-lab').style.color = "#EF5050";
+        phone.classList.add('invalid');
+        p1Error.Phonenumber = false;
+    }else{
+        phone.style.borderColor = "#98E37E";
+        phone.classList.add('valid');
+        PersonData.phone = phone.value;
+        p1Error.Phonenumber= true;
+    }
+    return p1Error
+})
+
+
+// if input is empty
+mybtn.addEventListener('click', (e) =>{
+    if(document.querySelector('#upload-btn').value == ''){
+        document.querySelector('.warningicon').style.display = "block";
+        p1Error.image = false;
+    }else{
+        document.querySelector('.uploaded').style.display = "block";
+        p1Error.image = true;
+    }
+    const emptyInput = document.querySelector('#form1').querySelectorAll('input');
+    for(x=0; x<emptyInput.length; x++){
+        console.log(emptyInput[x]);
+        if(emptyInput[x].value == ''){
+            emptyInput[x].style.borderColor = "#EF5050";
+            emptyInput[x].classList.add('invalid');
+        }
+    }
+
+})
+
+// button validation
+
+mybtn.addEventListener('click', () =>{
+    
+    let form1Error = true;
+
+    Object.values(p1Error).forEach(val => {
+        if(val === false){
+            form1Error = false;
+        }
+    });  
+    if(form1Error === true){
+        steps[0].classList.remove('active');
+        steps[1].classList.add('active');
+    }
+
+})
+
+
+// ---------------------------------------------------------------------------------------------------------------------
 
 // page 2 validation
 // f2NextBtn.addEventListener('click', (e) => {
@@ -210,6 +274,16 @@ const aducationSpace = document.querySelector('#education_speace');
 //     }
 // })
 
+const persons = [];
+const person = {firstName:"John", lastName:"Doe", age:46};
+const persontwo = {firstName:"John", lastName:"Doe", age:46};
+person.favcolor = 'green';
+
+// Object.values(person).forEach(val => console.log(val));
+// console.log('fghjk')
+// persons.push(persontwo);
+// persons.push(person);
+// console.log(persons);
 
 
 

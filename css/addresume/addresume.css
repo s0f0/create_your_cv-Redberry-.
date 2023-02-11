@@ -385,4 +385,26 @@ label {
 #cvlogo {
   position: absolute;
   bottom: 44px;
+}
+
+.invalid {
+  background-image: url(../../assets/image/ph_warning-fill.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-x: 97%;
+}
+
+#fname {
+  background: url(../../assets/image/akar-icons_circle-check-fill.png) !important;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-x: 97%;
+  background-color: -internal-light-dark(rgba(232, 240, 254, 0), rgba(70, 90, 126, 0)) !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  background: url(../../assets/image/akar-icons_circle-check-fill.png) !important;
 }/*# sourceMappingURL=addresume.css.map */
