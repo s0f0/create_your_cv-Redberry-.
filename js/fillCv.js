@@ -30,11 +30,13 @@ last_Name.addEventListener('keyup', () =>{
 personEmail.addEventListener('keyup', () =>{
     document.getElementById("p_email").innerHTML = personEmail.value;
     document.getElementById("email_icon").style.display = "block";
+    document.querySelector('.cvhr1').style.display = "block";
 })
 // phone number
 PersonPhone.addEventListener('keyup', () =>{
     document.getElementById("Person_phone").innerHTML = PersonPhone.value;
     document.getElementById("Phone_icon").style.display = "block";
+    document.querySelector('.cvhr1').style.display = "block";
 })
 //  about me 
 AboutMe.addEventListener('keyup', () => {

@@ -11,7 +11,7 @@ button.addEventListener('click', function(e){
 })
 
 function toggleHidden(){
-    select.classList.toggle('hidden')
+    select.classList.toggle('hidden');
 }
 
 options.forEach(function(option){
@@ -41,6 +41,7 @@ uploadBtn.onchange = () => {
     // console.log(uploadBtn.files[0]);
     reader.onload = () => {
         chosenImage.setAttribute("src", reader.result);
+        console.log(reader.result);
     }
     document.getElementById("personimg").style.display = "block";
 }
@@ -106,40 +107,23 @@ function addEducation() {
 }
 
 
+// data object -------------------------------
+let PersonData = [];
 
 
-// filling out the CV
 
-// page 1 info
-
+// page 1 validation ---------------------------------------------------
 const fname = document.querySelector('#fname');
 const lastName = document.querySelector('#lname');
 const email = document.querySelector('#email');
 const phone = document.querySelector('#tel');
+const aboutMe = document.querySelector('#about_Me');
 const f1NextBtn = document.querySelector('.f1_nectbtn');
-// page 2 info
-
-const position = document.querySelector('#position');
-const employer = document.querySelector('#employer');
-const startDate = document.querySelector('#start_date');
-const endDate = document.querySelector('#end_date');
-const aboutWork = document.querySelector('#about_work');
-const f2NextBtn = document.querySelector('.f2_nextbtn');
-
-// page 3 info
-
-const aducationSpace = document.querySelector('#education_speace');
-
-
-// page 1 validation
-let PersonData = [];
 
 // first page Errors
 let p1Error = [];
 
 // first and last name validation
-
-// console.log('')
 fname.addEventListener("focusout", () =>{
     let res = /^[ა-ჰ]+$/.test(fname.value);
     let labelClass = '.' + fname.id + '_name';
@@ -147,12 +131,14 @@ fname.addEventListener("focusout", () =>{
         fname.style.borderColor = "#EF5050";
         document.querySelector(labelClass).style.color = "#EF5050";
         fname.classList.add('invalid');
+        fname.classList.remove('valid');
         p1Error.firstname = false;
     }else{
         fname.style.borderColor = "#98E37E";
         document.querySelector(labelClass).style.color = "#000000";
         fname.classList.add('valid');
-        PersonData.FirstName = fname.value;
+        fname.classList.remove('invalid');
+        PersonData.name = fname.value;
         p1Error.firstname = true
     }
     return p1Error
@@ -165,12 +151,14 @@ lastName.addEventListener("focusout", () =>{
         lastName.style.borderColor = "#EF5050";
         document.querySelector(labelClass).style.color = "#EF5050";
         lastName.classList.add('invalid');
+        lastName.classList.remove('valid');
         p1Error.lastname = false;
     }else{
         lastName.style.borderColor = "#98E37E";
         document.querySelector(labelClass).style.color = "#000000";
         lastName.classList.add('valid');
-        PersonData.LastName = lastName.value;
+        lastName.classList.remove('invalid');
+        PersonData.surname = lastName.value;
         p1Error.lastname = true;
     }
   
@@ -185,10 +173,12 @@ email.addEventListener("focusout", () => {
         email.style.borderColor = "#EF5050";
         document.querySelector('.labl_email').style.color = "#EF5050";
         email.classList.add('invalid');
+        email.classList.remove('valid')
         p1Error.Email = false;
     }else{
         email.style.borderColor = "#98E37E";
         email.classList.add('valid');
+        email.classList.remove('invalid');
         PersonData.email = email.value;
         p1Error.Email = true;
     }
@@ -208,14 +198,14 @@ phone.addEventListener("focusout", () => {
         phone.style.borderColor = "#98E37E";
         phone.classList.add('valid');
         PersonData.phone = phone.value;
-        p1Error.Phonenumber= true;
+        p1Error.phone_number= true;
     }
     return p1Error
 })
 
 
 // if input is empty
-mybtn.addEventListener('click', (e) =>{
+f1NextBtn.addEventListener('click', (e) =>{
     if(document.querySelector('#upload-btn').value == ''){
         document.querySelector('.warningicon').style.display = "block";
         p1Error.image = false;
@@ -223,20 +213,27 @@ mybtn.addEventListener('click', (e) =>{
         document.querySelector('.uploaded').style.display = "block";
         p1Error.image = true;
     }
+    if(aboutMe.value !== ''){
+        PersonData.about_me = aboutMe.value;
+    }
     const emptyInput = document.querySelector('#form1').querySelectorAll('input');
     for(x=0; x<emptyInput.length; x++){
-        console.log(emptyInput[x]);
+        // console.log(emptyInput[x]);
         if(emptyInput[x].value == ''){
             emptyInput[x].style.borderColor = "#EF5050";
             emptyInput[x].classList.add('invalid');
+            p1Error.emptyInput = false;
+        }else{
+            p1Error.emptyInput = true;
         }
+        console.log(p1Error);
     }
 
 })
 
 // button validation
 
-mybtn.addEventListener('click', () =>{
+f1NextBtn.addEventListener('click', () =>{
     
     let form1Error = true;
 
@@ -253,37 +250,254 @@ mybtn.addEventListener('click', () =>{
 })
 
 
-// ---------------------------------------------------------------------------------------------------------------------
+// page 2 validation ---------------------------------------------
+const position = document.querySelector('#position');
+const employer = document.querySelector('#employer');
+const startDate = document.querySelector('#start_date');
+const endDate = document.querySelector('#end_date');
+const aboutWork = document.querySelector('#about_work');
+const f2NextBtn = document.querySelector('.f2_nextbtn');
 
-// page 2 validation
-// f2NextBtn.addEventListener('click', (e) => {
-//     let F2error = [];
+// second page error object
+p2Error = [];
 
-//     if(position.value === ''|| position.value.length < 2){
-//         position.style.borderColor = "#EF5050";
-//         document.querySelector('.position-labl').style.color = "#EF5050";
-//     }else{
-//        position.style.borderColor = "#98E37E"; 
-//     }
- 
-//     // button validation
-//     if(F2error.length > 0){
-//         nextBtn.addEventListener('click', function(e){
-//             e.preventDefault();
-//         })
-//     }
-// })
+// position
+position.addEventListener("focusout", () => {
+    if(position.value.length < 2 ){
+        position.style.borderColor = "#EF5050";
+        position.classList.add('invalid');
+        p2Error.position = false;
+    }else{
+        position.style.borderColor = "#98E37E";
+        position.classList.add('valid');
+        PersonData.position = position.value;
+        p2Error.position = true;
+    }
+    return p2Error
+})
+// employer
+employer.addEventListener("focusout", () => {
+    if(employer.value.length < 2 ){
+        employer.style.borderColor = "#EF5050";
+        employer.classList.add('invalid');
+        p2Error.employer = false;
+    }else{
+        employer.style.borderColor = "#98E37E";
+        employer.classList.add('valid');
+        PersonData.employer = employer.value;
+        p2Error.employer = true;
+    }
+    return p2Error
+})
 
-const persons = [];
-const person = {firstName:"John", lastName:"Doe", age:46};
-const persontwo = {firstName:"John", lastName:"Doe", age:46};
-person.favcolor = 'green';
+// start date validation
+    startDate.addEventListener('change', () => {
+        if(startDate.value == ''){
+            startDate.style.borderColor = "#EF5050";
+            p2Error.startDate = false;
+        }else{
+            startDate.style.borderColor = "#98E37E";
+            PersonData.startDate = startDate.value;
+            p2Error.startDate = true;
+        }
+        
+    })
 
-// Object.values(person).forEach(val => console.log(val));
-// console.log('fghjk')
-// persons.push(persontwo);
-// persons.push(person);
-// console.log(persons);
+// end date validation
+endDate.addEventListener('change', () =>{
+    if(endDate.value == ''){
+        endDate.style.borderColor = "#EF5050";
+        p2Error.endDate = false;
+    }else{
+        endDate.style.borderColor = "#98E37E";
+        PersonData.endDate = endDate.value;
+        p2Error.endDate = true;
+    }
+    return p2Error
+})   
 
+// about position validation
+aboutWork.addEventListener("focusout", () => {
+if(aboutWork.value == ''){
+    aboutWork.style.borderColor = "#EF5050";
+    p2Error.aboutWork = false;
+    aboutWork.classList.add('invalid');
+}else{
+    aboutWork.style.borderColor = "#98E37E";
+    aboutWork.classList.add('valid');
+    PersonData.aboutWork = aboutWork.value;
+    p2Error.aboutWork = true;
+}
+return p2Error
+})
+
+// if input is empty
+f2NextBtn.addEventListener('click', (e) =>{
+    if(aboutWork.value == ''){
+        aboutWork.style.borderColor = "#EF5050";
+        p2Error.aboutWork = false;
+        aboutWork.classList.add('invalid');
+    }
+    // empty input validation
+    const empty2Input = document.querySelector('#form2').querySelectorAll('input');
+    for(i = 0; i<empty2Input.length; i++){
+        if(empty2Input[i].value == ''){
+            empty2Input[i].style.borderColor = "#EF5050";
+            empty2Input[i].classList.add('invalid');
+            p2Error.emptyInput = false;
+        }else{
+            p2Error.emptyInput = true;
+        }
+
+    }
+    console.log(p2Error);
+
+})
+
+// button validation
+
+f2NextBtn.addEventListener('click', () =>{
+    let form2Error = true;
+
+    Object.values(p2Error).forEach(val => {
+        if(val === false){
+            form2Error = false;
+        }
+    });  
+    if(form2Error === true){
+        steps[1].classList.remove('active');
+        steps[2].classList.add('active')
+    }
+
+})
+
+
+
+// page 3 validation -----------------------------------------
+const educationSpace = document.querySelector('#education_speace');
+const EndDateedu = document.getElementById("edu-end-date");
+const AboutEdu = document.getElementById("about-edu");
+const endbtn = document.querySelector('.submit-btn');
+
+// form 3 error
+p3Error = [];
+
+// education space
+educationSpace.addEventListener("focusout", () => {
+    if(educationSpace.value.length < 2 ){
+        educationSpace.style.borderColor = "#EF5050";
+        educationSpace.classList.add('invalid');
+        p3Error.educationSpace = false;
+    }else{
+        educationSpace.style.borderColor = "#98E37E";
+        educationSpace.classList.add('valid');
+        PersonData.educationSpace = educationSpace.value;
+        p3Error.educationSpace = true;
+    }
+    return p3Error
+})
+
+// end date
+EndDateedu.addEventListener("focusout", () => {
+    if(EndDateedu.value.length < 2 ){
+        EndDateedu.style.borderColor = "#EF5050";
+        p3Error.EndDateedu = false;
+    }else{
+        EndDateedu.style.borderColor = "#98E37E";
+        PersonData.Enddateedu = EndDateedu.value;
+        p3Error.EndDateedu = true;
+    }
+    return p3Error
+})
+
+AboutEdu.addEventListener("focusout", () => {
+    if(AboutEdu.value.length < 2 ){
+        AboutEdu.style.borderColor = "#EF5050";
+        AboutEdu.classList.add('invalid');
+        p3Error.aboutEdu = false;
+    }else{
+        AboutEdu.style.borderColor = "#98E37E";
+        AboutEdu.classList.add('valid');
+        PersonData.AboutEdu = AboutEdu.value;
+        p3Error.aboutEdu = true;
+    }
+    return p3Error
+})
+
+
+// console.log(options);
+// console.log(typeof(options))
+
+let k = false;
+Object.values(options).forEach(val =>{
+    val.addEventListener("click", () =>{
+        if(val.checked === true){
+            document.querySelector('.button').style.borderColor = "#98E37E";
+            val.style.borderColor = "#98E37E";
+            k = true;
+            p3Error.quality = true;
+        }
+        console.log(p3Error);
+        return p3Error
+    })
+})
+
+
+// if input is empty
+endbtn.addEventListener('click', (e) =>{
+    // Object.values(options).forEach(val => {
+        if(k == false){
+            document.querySelector('.button').style.borderColor = "#EF5050";
+            p3Error.quality = false;
+        }
+        // else{
+        //     p3Error.quality = true;
+        // }
+    // })
+    // empty textarea
+    if(AboutEdu.value == ''){
+        AboutEdu.style.borderColor = "#EF5050";
+        AboutEdu.classList.add('invalid');
+        p3Error.aboutEdu = false;
+    }
+
+    // empty input validation
+    const empty3Input = document.querySelector('#form3').querySelectorAll('input');
+    for(i = 0; i<empty3Input.length; i++){
+        if(empty3Input[i].value == ''){
+            empty3Input[i].style.borderColor = "#EF5050";
+            empty3Input[i].classList.add('invalid');
+            p3Error.emptyInput = false;
+        }else{
+            p3Error.emptyInput = true;
+        }
+
+    }
+    console.log(p3Error);
+
+})
+
+// end button validation
+
+endbtn.addEventListener('click', () =>{
+    let form3Error = true;
+
+    Object.values(p3Error).forEach(val => {
+        if(val === false){
+            form3Error = false;
+        }
+    });  
+    if(form3Error === true){
+        document.querySelector('.form_container').style.display = "none";
+        document.querySelector('.fillCV').classList.add('send-resume');
+        document.querySelector('.pop-up').style.display = "block";
+    }
+
+})
+
+// close popup
+document.querySelector('.close-button').addEventListener('click', () => {
+    document.querySelector('.pop-up').style.display = "none";
+})
 
 

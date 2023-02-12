@@ -13,12 +13,11 @@
 <body>
     <!-- main container -->
     <div class="main_container">
+         <!-- back button -->
+         <a href="../index.html" id="back_button" ><img src="../assets/image/Vector.png" alt="back"></a>
         <!-- form section -->
         <form class="form_container">
         <!-- <div class="form_container"> -->
-
-            <!-- back button -->
-            <a href="../index.html" id="back_button" ><img src="../assets/image/Vector.png" alt="back"></a>
 
             <!-- form page 1 -->
             <div id="form1" class="step active">
@@ -34,12 +33,12 @@
                 <div class="fullname">
                     <div class="fname">
                         <label class="fname_name">სახელი</label>
-                        <input type="text" placeholder="ანზორ" id="fname">
+                        <input type="text" placeholder="ანზორ" id="fname" required>
                         <p class="validText">მინიმუმ 2 ასო, ქართული ასოები</p>
                     </div>
                     <div class="lname">
                         <label class="lname_name">გვარი</label>
-                        <input type="text" placeholder="მუმლაძე" id="lname">
+                        <input type="text" placeholder="მუმლაძე" id="lname" required>
                         <p class="validText">მინიმუმ 2 ასო, ქართული ასოები</p>
                     </div>
                 </div>
@@ -60,13 +59,13 @@
                 <!-- gmail -->
                 <div class="email">
                     <label class="labl_email">ელ.ფოსტა</label>
-                    <input type="email" placeholder="anzor666@redberry.ge" id="email">
+                    <input type="email" placeholder="anzor666@redberry.ge" id="email" required>
                     <p class="validText">უნდა მთავრდებოდეს @redberry.ge-ით</p>
                 </div>
                 <!-- phone number -->
                 <div class="phnum">
                     <label class="phone-lab">მობილურის ნომერი</label>
-                    <input type="tel" placeholder="+995 551 12 34 56" id="tel">
+                    <input type="text" placeholder="+995 551 12 34 56" id="tel" required>
                     <p class="validText">უნდა აკმაყოფილებდეს ქართული მობილური ნომრის ფორმატს</p>
                 </div>
                 <!-- naxt button -->
@@ -88,25 +87,25 @@
                 <div class="experience">
                     <div class="position">
                         <label class="position-labl">თანამდებობა</label>
-                        <input type="text" placeholder="დეველოპერი, დიზაინერი, ა.შ" id="position">
+                        <input type="text" placeholder="დეველოპერი, დიზაინერი, ა.შ" id="position" required>
                         <p class="validText">მინიმუმ 2 სიმბოლო</p>
                     </div>
 
                     <!-- employer -->
                     <div class="employer">
                         <label>დამსაქმებელი</label>
-                        <input type="text" placeholder="დამსაქმებელი" id="employer"> 
+                        <input type="text" placeholder="დამსაქმებელი" id="employer" required> 
                         <p class="validText">მინიმუმ 2 სიმბოლო</p>
                     </div>
                     <!-- date -->
                     <div class="date">
                         <div class="start_date">
                             <label>დაწყების რიცხვი</label>
-                            <input type="date" placeholder="mm / dd / yyyy" id="start_date">
+                            <input type="date" placeholder="mm / dd / yyyy" id="start_date" required>
                         </div>
                         <div class="end_date">
                             <label>დამთავრების რიცხვი</label>
-                            <input type="date" placeholder="mm / dd / yyyy" id="end_date">
+                            <input type="date" placeholder="mm / dd / yyyy" id="end_date" required>
                         </div>
                     </div>
                     <!-- about position -->
@@ -122,7 +121,7 @@
                 <!-- next and back button -->
                 <div class="nextbtn">
                     <button type="button" class="previous-btn">უკან</button>
-                    <button type="button" class="next-btn f2_nextbtn">შემდეგი</button>
+                    <button type="button" class="next-btn f2_nextbtn" id="f2btn" >შემდეგი</button>
                 </div>
             </div>
 
@@ -139,15 +138,15 @@
                 <div class="education">
                     <div class="aducation">
                         <label>სასწავლებელი</label>
-                        <input type="text" placeholder="სასწავლებელი" id="education_speace">
+                        <input type="text" placeholder="სასწავლებელი" id="education_speace" required>
                         <p class="validText">მინიმუმ 2 სიმბოლო</p>
                     </div>
                     
                     <!-- date and quality-->
                     <div class="date">
                         <div class="start_date quality">
+
                             <label>ხარისხი</label>
-                        
                             <div class="select-group">
                                     <button class="button" id="button"> 
                                             <span id="select-label">აირჩიე ხარისხი</span>
@@ -158,13 +157,13 @@
                                             <input type="radio" id="option1" class="option" name="where" value="option1">
 
                                             <label for="option2" class="select-item">option2</label>
-                                            <input type="radio" id="option2" class="option" name="where" value="option1">
+                                            <input type="radio" id="option2" class="option" name="where" value="option2">
 
                                             <label for="option3" class="select-item">option3</label>
-                                            <input type="radio" id="option3" class="option" name="where" value="option1">
+                                            <input type="radio" id="option3" class="option" name="where" value="option3">
 
                                             <label for="option4" class="select-item">option4</label>
-                                            <input type="radio" id="option4" class="option" name="where" value="option1">
+                                            <input type="radio" id="option4" class="option" name="where" value="option4">
                                     </div>
                             </div>
 
@@ -232,6 +231,12 @@
         </div>
     </div>
 
+
+    <!-- pop up -->
+    <div class="pop-up">
+        <button class="close-button">&times;</button>
+        <p class="popup-text">რეზიუმე წარმატებით გაიგზავნა  🎉</p>
+    </div>
 
     <!-- script -->
     <script src="../js/script.js"></script>
