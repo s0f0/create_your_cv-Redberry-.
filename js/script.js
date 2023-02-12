@@ -15,6 +15,7 @@ function toggleHidden(){
 }
 
 options.forEach(function(option){
+    console.log(option)
     option.addEventListener('click', function(e){
         setSelectTitle(e);
     })
@@ -41,7 +42,7 @@ uploadBtn.onchange = () => {
     // console.log(uploadBtn.files[0]);
     reader.onload = () => {
         chosenImage.setAttribute("src", reader.result);
-        console.log(reader.result);
+        // console.log(reader.result);
     }
     document.getElementById("personimg").style.display = "block";
 }
@@ -226,7 +227,7 @@ f1NextBtn.addEventListener('click', (e) =>{
         }else{
             p1Error.emptyInput = true;
         }
-        console.log(p1Error);
+        // console.log(p1Error);
     }
 
 })
@@ -350,7 +351,7 @@ f2NextBtn.addEventListener('click', (e) =>{
         }
 
     }
-    console.log(p2Error);
+    // console.log(p2Error);
 
 })
 
@@ -409,7 +410,7 @@ EndDateedu.addEventListener("focusout", () => {
     }
     return p3Error
 })
-
+// about education
 AboutEdu.addEventListener("focusout", () => {
     if(AboutEdu.value.length < 2 ){
         AboutEdu.style.borderColor = "#EF5050";
@@ -424,7 +425,7 @@ AboutEdu.addEventListener("focusout", () => {
     return p3Error
 })
 
-
+// education quality
 // console.log(options);
 // console.log(typeof(options))
 
@@ -433,11 +434,11 @@ Object.values(options).forEach(val =>{
     val.addEventListener("click", () =>{
         if(val.checked === true){
             document.querySelector('.button').style.borderColor = "#98E37E";
-            val.style.borderColor = "#98E37E";
+            // val.style.borderColor = "#98E37E";
             k = true;
             p3Error.quality = true;
         }
-        console.log(p3Error);
+        // console.log(p3Error);
         return p3Error
     })
 })
@@ -445,15 +446,12 @@ Object.values(options).forEach(val =>{
 
 // if input is empty
 endbtn.addEventListener('click', (e) =>{
-    // Object.values(options).forEach(val => {
-        if(k == false){
-            document.querySelector('.button').style.borderColor = "#EF5050";
-            p3Error.quality = false;
-        }
-        // else{
-        //     p3Error.quality = true;
-        // }
-    // })
+    // education quality error
+    if(k == false){
+        document.querySelector('.button').style.borderColor = "#EF5050";
+        p3Error.quality = false;
+    }
+
     // empty textarea
     if(AboutEdu.value == ''){
         AboutEdu.style.borderColor = "#EF5050";
@@ -473,7 +471,7 @@ endbtn.addEventListener('click', (e) =>{
         }
 
     }
-    console.log(p3Error);
+    // console.log(p3Error);
 
 })
 
@@ -492,7 +490,7 @@ endbtn.addEventListener('click', () =>{
         document.querySelector('.fillCV').classList.add('send-resume');
         document.querySelector('.pop-up').style.display = "block";
     }
-
+    console.log(PersonData);
 })
 
 // close popup
