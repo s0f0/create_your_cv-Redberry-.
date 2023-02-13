@@ -15,7 +15,7 @@ function toggleHidden(){
 }
 
 options.forEach(function(option){
-    console.log(option)
+    // console.log(option)
     option.addEventListener('click', function(e){
         setSelectTitle(e);
     })
@@ -39,10 +39,10 @@ document.getElementById("personimg").style.display = "none";
 uploadBtn.onchange = () => {
     let reader = new FileReader();
     reader.readAsDataURL(uploadBtn.files[0]);
-    // console.log(uploadBtn.files[0]);
+    console.log(uploadBtn.files[0].name);
     reader.onload = () => {
         chosenImage.setAttribute("src", reader.result);
-        // console.log(reader.result);
+        console.log(reader.result);
     }
     document.getElementById("personimg").style.display = "block";
 }
@@ -109,9 +109,9 @@ function addEducation() {
 
 
 // data object -------------------------------
-let PersonData = [];
-
-
+let PersonData ={};
+PersonData.experiences =[];
+PersonData.educations = [];
 
 // page 1 validation ---------------------------------------------------
 const fname = document.querySelector('#fname');
@@ -130,13 +130,11 @@ fname.addEventListener("focusout", () =>{
     let labelClass = '.' + fname.id + '_name';
     if(fname.value.length < 2 || fname.value == ''|| res === false){
         fname.style.borderColor = "#EF5050";
-        document.querySelector(labelClass).style.color = "#EF5050";
         fname.classList.add('invalid');
         fname.classList.remove('valid');
         p1Error.firstname = false;
     }else{
         fname.style.borderColor = "#98E37E";
-        document.querySelector(labelClass).style.color = "#000000";
         fname.classList.add('valid');
         fname.classList.remove('invalid');
         PersonData.name = fname.value;
@@ -150,13 +148,11 @@ lastName.addEventListener("focusout", () =>{
     let labelClass = '.' + lastName.id + '_name';
     if(lastName.value.length < 2 || lastName.value === ''|| res === false){
         lastName.style.borderColor = "#EF5050";
-        document.querySelector(labelClass).style.color = "#EF5050";
         lastName.classList.add('invalid');
         lastName.classList.remove('valid');
         p1Error.lastname = false;
     }else{
         lastName.style.borderColor = "#98E37E";
-        document.querySelector(labelClass).style.color = "#000000";
         lastName.classList.add('valid');
         lastName.classList.remove('invalid');
         PersonData.surname = lastName.value;
@@ -192,14 +188,13 @@ phone.addEventListener("focusout", () => {
     let chackPhone = phone.value.match(/^\+995\s5\d{2}\s\d{2}\s\d{2}\s\d{2}$/);
     if(phone.value === ''|| chackPhone === false){
         phone.style.borderColor = "#EF5050";
-        document.querySelector('.phone-lab').style.color = "#EF5050";
         phone.classList.add('invalid');
         p1Error.Phonenumber = false;
     }else{
         phone.style.borderColor = "#98E37E";
         phone.classList.add('valid');
-        PersonData.phone = phone.value;
-        p1Error.phone_number= true;
+        PersonData.phone_number = phone.value;
+        p1Error.Phonenumber= true;
     }
     return p1Error
 })
@@ -207,6 +202,7 @@ phone.addEventListener("focusout", () => {
 
 // if input is empty
 f1NextBtn.addEventListener('click', (e) =>{
+    console.log(document.querySelector('#upload-btn').value);
     if(document.querySelector('#upload-btn').value == ''){
         document.querySelector('.warningicon').style.display = "block";
         p1Error.image = false;
@@ -271,7 +267,8 @@ position.addEventListener("focusout", () => {
     }else{
         position.style.borderColor = "#98E37E";
         position.classList.add('valid');
-        PersonData.position = position.value;
+        PersonData.experiences.push({});
+        PersonData.experiences[0].position = position.value;
         p2Error.position = true;
     }
     return p2Error
@@ -285,7 +282,7 @@ employer.addEventListener("focusout", () => {
     }else{
         employer.style.borderColor = "#98E37E";
         employer.classList.add('valid');
-        PersonData.employer = employer.value;
+        PersonData.experiences[0].employer = employer.value;
         p2Error.employer = true;
     }
     return p2Error
@@ -298,7 +295,7 @@ employer.addEventListener("focusout", () => {
             p2Error.startDate = false;
         }else{
             startDate.style.borderColor = "#98E37E";
-            PersonData.startDate = startDate.value;
+            PersonData.experiences[0].start_date = startDate.value;
             p2Error.startDate = true;
         }
         
@@ -311,7 +308,7 @@ endDate.addEventListener('change', () =>{
         p2Error.endDate = false;
     }else{
         endDate.style.borderColor = "#98E37E";
-        PersonData.endDate = endDate.value;
+        PersonData.experiences[0].due_date = endDate.value;
         p2Error.endDate = true;
     }
     return p2Error
@@ -326,7 +323,7 @@ if(aboutWork.value == ''){
 }else{
     aboutWork.style.borderColor = "#98E37E";
     aboutWork.classList.add('valid');
-    PersonData.aboutWork = aboutWork.value;
+    PersonData.experiences[0].description = aboutWork.value;
     p2Error.aboutWork = true;
 }
 return p2Error
@@ -392,7 +389,8 @@ educationSpace.addEventListener("focusout", () => {
     }else{
         educationSpace.style.borderColor = "#98E37E";
         educationSpace.classList.add('valid');
-        PersonData.educationSpace = educationSpace.value;
+        PersonData.educations.push({});
+        PersonData.educations[0].institute = educationSpace.value;
         p3Error.educationSpace = true;
     }
     return p3Error
@@ -405,7 +403,7 @@ EndDateedu.addEventListener("focusout", () => {
         p3Error.EndDateedu = false;
     }else{
         EndDateedu.style.borderColor = "#98E37E";
-        PersonData.Enddateedu = EndDateedu.value;
+        PersonData.educations[0].due_data = EndDateedu.value;
         p3Error.EndDateedu = true;
     }
     return p3Error
@@ -419,7 +417,7 @@ AboutEdu.addEventListener("focusout", () => {
     }else{
         AboutEdu.style.borderColor = "#98E37E";
         AboutEdu.classList.add('valid');
-        PersonData.AboutEdu = AboutEdu.value;
+        PersonData.educations[0].description = AboutEdu.value;
         p3Error.aboutEdu = true;
     }
     return p3Error
@@ -434,9 +432,9 @@ Object.values(options).forEach(val =>{
     val.addEventListener("click", () =>{
         if(val.checked === true){
             document.querySelector('.button').style.borderColor = "#98E37E";
-            // val.style.borderColor = "#98E37E";
             k = true;
             p3Error.quality = true;
+            PersonData.educations[0].degree = val.value;
         }
         // console.log(p3Error);
         return p3Error
@@ -490,9 +488,28 @@ endbtn.addEventListener('click', () =>{
         document.querySelector('.fillCV').classList.add('send-resume');
         document.querySelector('.pop-up').style.display = "block";
     }
-    console.log(PersonData);
+    // console.log(PersonData);
 })
 
+const Form = document.getElementById('form');
+
+// submite
+Form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    console.log(PersonData);
+    fetch('https://resume.redberryinternship.ge/api/cvs', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(PersonData),
+    })
+
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(error => console.log(error));
+})
 // close popup
 document.querySelector('.close-button').addEventListener('click', () => {
     document.querySelector('.pop-up').style.display = "none";
